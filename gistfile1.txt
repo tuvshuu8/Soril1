@@ -1,0 +1,35 @@
+include "C:\Users\work\OneDrive\Documents\adc\bodlogo1.h"
+
+
+void main()
+{
+ char adc_value;
+ float volt;
+   setup_adc_ports(AN0);
+   setup_adc(ADC_CLOCK_INTERNAL);
+   set_adc_channel(0);
+   // TODO: USER CODE!!
+
+
+
+while(true){
+         adc_value=read_adc();
+         volt=adc_value*0.0196;
+         //printf("volt=%f\r\n",volt);
+       if(volt>1.5&&volt <3.0)
+          {
+           printf("Normal=%f\r\n",volt);
+          }         
+        else if( volt>3)
+          {
+          printf("Up level %f\r\n",volt); 
+          }    
+        else if(volt<1.5)
+         {
+          printf("Lower limit %f\r\n",volt);
+         delay_ms(300);
+          }
+           }                      
+           
+           
+}  
